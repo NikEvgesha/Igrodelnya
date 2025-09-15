@@ -197,8 +197,8 @@ public class PlayerInput : MonoBehaviour
         else
         {
             //_jump = Input.GetKeyDown(KeyCode.Space);
-            //_interaction = Input.GetKeyDown(KeyCode.E);
-            //_interactionHold = Input.GetKey(KeyCode.E);
+            _interaction = Input.GetKeyDown(KeyCode.E);
+            _interactionHold = Input.GetKey(KeyCode.E);
             //_sprint = Input.GetKey(KeyCode.LeftShift);
             //_attach = Input.GetKeyDown(KeyCode.Z);
             //_inventory = Input.GetKeyDown(KeyCode.Tab);
@@ -218,8 +218,8 @@ public class PlayerInput : MonoBehaviour
         }
         //if (_jump) AJump?.Invoke();
         //if (_sprint) ASprint?.Invoke();
-        //if (_interaction) AInteraction?.Invoke();
-        //if (_interactionHold) AInteractionHold?.Invoke();
+        if (_interaction) AInteraction?.Invoke();
+        if (_interactionHold) AInteractionHold?.Invoke();
         //if (_pickUp) APickUp?.Invoke();
         //if (_forcePickUp) AForcePickUp?.Invoke();
         //if (_inTrain) AInTrain?.Invoke();
