@@ -34,10 +34,10 @@ public abstract class SaveProvider : MonoBehaviour
     public abstract bool CheckProgress();
 
     // Сохранение валюты
-    public abstract void SaveGems(int amount);
-    public abstract int LoadGems();
-    public abstract void SaveGameCoin(int coin);
-    public abstract int LoadGameCoin();
+    public abstract void SaveGems(double amount);
+    public abstract double LoadGems();
+    public abstract void SaveGameCoin(double coin);
+    public abstract double LoadGameCoin();
 
     // Достижения
     public abstract void SaveAchievementProgress(AchievementType id, int progress);

@@ -7,7 +7,7 @@ public class CurrencyUI : MonoBehaviour
     [SerializeField] private CurrencyType _type;
     [SerializeField] private UIMoneyChangeAnimation _diffObj;
 
-    private int _currentAmount = 0;
+    private double _currentAmount = 0;
 
     private void Start()
     {
@@ -31,11 +31,11 @@ public class CurrencyUI : MonoBehaviour
     }
 
 
-    private void OnCurrencyChanged(CurrencyType type, int newAmount)
+    private void OnCurrencyChanged(CurrencyType type, double newAmount)
     {
         if (type == _type)
         {
-            int difference = newAmount - _currentAmount;
+            double difference = newAmount - _currentAmount;
             if (difference != 0)
             {
                 ShowDifference(difference);
@@ -46,10 +46,10 @@ public class CurrencyUI : MonoBehaviour
         }
     }
 
-    private void ShowDifference(int diff)
+    private void ShowDifference(double diff)
     {
         if (!gameObject.activeInHierarchy) return;
         UIMoneyChangeAnimation animation = Instantiate(_diffObj, transform);
-        animation.Config(diff.ToString(), diff > 0);
+        animation.Config(CurrencyConverter.convertNumToString(diff), diff > 0);
     }
 }

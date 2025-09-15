@@ -54,16 +54,21 @@ public class ControlUI : MonoBehaviour
     {
         _isQuitting = true;
     }
+
+    private void Start()
+    {
+        UseMobileSetup(ControlManager.Instance.UseTouchControl);
+    }
     public void UseMobileSetup(bool isMobile)
     {
         _isMobile = isMobile;
         _mobileUI.SetActive(isMobile);
         _desktopUI.SetActive(!isMobile);
-        _desktopMenuUI.SetActive(!isMobile);
-        foreach (GameObject go in _hotKeys)
-        {
-            go.SetActive(!isMobile);
-        }
+        //_desktopMenuUI.SetActive(!isMobile);
+        //foreach (GameObject go in _hotKeys)
+        //{
+        //    go.SetActive(!isMobile);
+        //}
     }
 
     private void Awake()
@@ -82,7 +87,8 @@ public class ControlUI : MonoBehaviour
     }
     private void DeactivateAll()
     {
-        _descktopHints.rotate.SetActive(false);
+        if (_descktopHints.rotate)
+            _descktopHints.rotate.SetActive(false);
         //_touchControls.rotateXButton.gameObject.SetActive(false);
     }
     /*    public void SwitchPlatformControls(bool onPlatform)

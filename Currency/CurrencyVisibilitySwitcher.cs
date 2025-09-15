@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CurrencyVisibilitySwitcher : MonoBehaviour
@@ -35,10 +33,10 @@ public class CurrencyVisibilitySwitcher : MonoBehaviour
         {
             case Location.Lobby:
                 SwitchGemsVisibility(true);
-                SwitchCoinsVisibility(false);
+                SwitchCoinsVisibility(true);
                 break;
             case Location.Game:
-                SwitchGemsVisibility(false);
+                SwitchGemsVisibility(true);
                 SwitchCoinsVisibility(true);
                 break;
             default:

@@ -19,5 +19,5 @@ public struct LBData
 public abstract class LeaderboardProvider: MonoBehaviour
 {
     public abstract void LoadLB(LBName LBTag, int topAmount, bool includePlayer, Action<LBData> onLoad);
-    public abstract void SaveScore(string LBName, int score);
+    public abstract void SaveScore(string LBName, double score);
 }

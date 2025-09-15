@@ -17,18 +17,18 @@ public class DummySaveProvider : SaveProvider
         }
         return volumes;
     }
-    public override void SaveGems(int amount) {
-        PlayerPrefs.SetInt("Gems", amount);
+    public override void SaveGems(double amount) {
+        PlayerPrefs.SetString("Gems", amount.ToString());
     }
 
-    public override int LoadGems()
+    public override double LoadGems()
     {
-        int gems = 0;
+        string gems = "0";
         if (PlayerPrefs.HasKey("Gems"))
         {
-            gems = PlayerPrefs.GetInt("Gems");
+            gems = PlayerPrefs.GetString("Gems");
         }
-        return gems;
+        return Double.Parse(gems);
     }
     public override void SaveVolume(float musicVolume, float soundVolume)
     {
@@ -105,7 +105,7 @@ public class DummySaveProvider : SaveProvider
 
     public override void SaveInventory(List<ItemData> items) { }
     public override void SavePlayerStats(int coin, float hp) { }
-    public override void SaveGameCoin(int coin)
+    public override void SaveGameCoin(double coin)
     {
         throw new NotImplementedException();
     }
@@ -121,7 +121,7 @@ public class DummySaveProvider : SaveProvider
     {
         throw new NotImplementedException();
     }
-    public override int LoadGameCoin()
+    public override double LoadGameCoin()
     {
         throw new NotImplementedException();
     }

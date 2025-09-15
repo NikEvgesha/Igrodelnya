@@ -28,7 +28,7 @@ public class LeaderboardManager : MonoBehaviour
     }
 
 
-    public void SaveScore(string LBName, int score)
+    public void SaveScore(string LBName, double score)
     {
         _provider.SaveScore(LBName, score);
     }

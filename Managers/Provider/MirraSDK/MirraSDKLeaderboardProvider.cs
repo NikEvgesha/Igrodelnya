@@ -32,11 +32,11 @@ public class MirraSDKLeaderboardProvider : LeaderboardProvider
     }
 
 
-    public override void SaveScore(string LBName, int score)
+    public override void SaveScore(string LBName, double score)
     {
-        MirraSDK.Achievements.SetScore(
-            boardId: LBName,
-            score: score);
+        //MirraSDK.Achievements.SetScore(
+        //    boardId: LBName,
+        //    score: score);
         //Debug.Log(LBName + " set score " + score);
     }
 }

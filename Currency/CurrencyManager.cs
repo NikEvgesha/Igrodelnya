@@ -1,4 +1,3 @@
-using MirraGames.SDK;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +8,14 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private Sprite _coinIcon;
     [SerializeField] private Sprite _realIcon; // Tmp
 
-    [SerializeField] private int StartCoinsAmount;
+    [SerializeField] private double StartCoinsAmount;
 
     [SerializeField] private AudioClip _audioBuy;
     [SerializeField] private AudioClip _audioSell;
     [SerializeField] private AudioSource _audioSource;
     private static CurrencyManager _instance;
 
-    private Dictionary<CurrencyType, int> _balance = new() 
+    private Dictionary<CurrencyType, double> _balance = new() 
     {
         { CurrencyType.Coins, 0},
         { CurrencyType.Gems, 0}
@@ -24,10 +23,10 @@ public class CurrencyManager : MonoBehaviour
 
     private Dictionary<CurrencyType, Sprite> _currencyIcons;
 
-    public int Gems { get { return _balance[CurrencyType.Gems]; } }
-    public int Coins { get { return _balance[CurrencyType.Coins]; } }
+    public double Gems { get { return _balance[CurrencyType.Gems]; } }
+    public double Coins { get { return _balance[CurrencyType.Coins]; } }
 
-    public Action<CurrencyType, int> CurrencyChanged;
+    public Action<CurrencyType, double> CurrencyChanged;
     public Action NoGems;
     public Action NoCoins;
     public Action<bool> ShowGems;
@@ -53,7 +52,7 @@ public class CurrencyManager : MonoBehaviour
 
     private void Start()
     {
-        
+        AddCurrency(CurrencyType.Coins, StartCoinsAmount);
         AddCurrency(CurrencyType.Coins, SaveManager.Instance.LoadGameCoin());
         AddCurrency(CurrencyType.Gems, SaveManager.Instance.GetGems());
     }
@@ -65,7 +64,7 @@ public class CurrencyManager : MonoBehaviour
         AddCurrency(CurrencyType.Coins, StartCoinsAmount);
     }
 
-    public void AddCurrency(CurrencyType type, int amount)
+    public void AddCurrency(CurrencyType type, double amount)
     {
         if (_audioSource)
             if(_audioSell)
@@ -78,7 +77,7 @@ public class CurrencyManager : MonoBehaviour
             SaveManager.Instance.SaveGameCoin(_balance[type]);
     }
 
-    public bool RemoveCurrency(CurrencyType type, int amount)
+    public bool RemoveCurrency(CurrencyType type, double amount)
     {
         if (_balance[type] >= amount)
         {
@@ -97,12 +96,12 @@ public class CurrencyManager : MonoBehaviour
         return false;
     }
 
-    public int GetBalance(CurrencyType type)
+    public double GetBalance(CurrencyType type)
     {
         return _balance[type];
     }
 
-    public bool CheckEnoughCurrency(CurrencyType type, int amount, bool showNoGemsShop = true)
+    public bool CheckEnoughCurrency(CurrencyType type, double amount, bool showNoGemsShop = true)
     {
         if (amount <= _balance[type])
         {

@@ -182,53 +182,53 @@ public class PlayerInput : MonoBehaviour
 
         if (ControlManager.Instance.UseTouchControl)
         {
-            _jump = _touchControls.jumpButton.IsTriggered;
-            _pickUp = _touchControls.pickUpButton.IsTriggered;
-            _interaction = _touchControls.putToInventoryButton.IsTriggered;
-            _interactionHold = _touchControls.putToInventoryButton.IsHolded;
-            _sprint = _touchControls.sprintButton.IsHolded;
-            _attach = _touchControls.attachButton.IsTriggered;
-            _attack = _touchControls.attackButton.IsHolded;
-            _healing = _touchControls.useButton.IsHolded;
-            _reload = _touchControls.reloadButton.IsTriggered;
-            _rotationX = _touchControls.rotateXButton.IsHolded;
-            _rotationY = _touchControls.rotateYButton.IsHolded;
+            //_jump = _touchControls.jumpButton.IsTriggered;
+            //_pickUp = _touchControls.pickUpButton.IsTriggered;
+            //_interaction = _touchControls.putToInventoryButton.IsTriggered;
+            //_interactionHold = _touchControls.putToInventoryButton.IsHolded;
+            //_sprint = _touchControls.sprintButton.IsHolded;
+            //_attach = _touchControls.attachButton.IsTriggered;
+            //_attack = _touchControls.attackButton.IsHolded;
+            //_healing = _touchControls.useButton.IsHolded;
+            //_reload = _touchControls.reloadButton.IsTriggered;
+            //_rotationX = _touchControls.rotateXButton.IsHolded;
+            //_rotationY = _touchControls.rotateYButton.IsHolded;
         }
         else
         {
-            _jump = Input.GetKeyDown(KeyCode.Space);
-            _interaction = Input.GetKeyDown(KeyCode.E);
-            _interactionHold = Input.GetKey(KeyCode.E);
-            _sprint = Input.GetKey(KeyCode.LeftShift);
-            _attach = Input.GetKeyDown(KeyCode.Z);
-            _inventory = Input.GetKeyDown(KeyCode.Tab);
-            _reload = Input.GetKeyDown(KeyCode.R);
-            _rotationY = _interactionHold;
-            _rotationX = Input.GetKey(KeyCode.Q);
+            //_jump = Input.GetKeyDown(KeyCode.Space);
+            //_interaction = Input.GetKeyDown(KeyCode.E);
+            //_interactionHold = Input.GetKey(KeyCode.E);
+            //_sprint = Input.GetKey(KeyCode.LeftShift);
+            //_attach = Input.GetKeyDown(KeyCode.Z);
+            //_inventory = Input.GetKeyDown(KeyCode.Tab);
+            //_reload = Input.GetKeyDown(KeyCode.R);
+            //_rotationY = _interactionHold;
+            //_rotationX = Input.GetKey(KeyCode.Q);
             _pause = Input.GetKeyDown(KeyCode.P);
             _roulette = Input.GetKeyDown(KeyCode.K);
             _playtime = Input.GetKeyDown(KeyCode.L);
-            if (!ControlManager.Instance.CursorActive)
-            {
-                _pickUp = Input.GetMouseButtonDown(1);
-                //_useItem = Input.GetMouseButtonDown(0);
-                _attack = Input.GetMouseButton(0);
-                _healing = _attack;
-            }
+            //if (!ControlManager.Instance.CursorActive)
+            //{
+            //    _pickUp = Input.GetMouseButtonDown(1);
+            //    //_useItem = Input.GetMouseButtonDown(0);
+            //    _attack = Input.GetMouseButton(0);
+            //    _healing = _attack;
+            //}
         }
-        if (_jump) AJump?.Invoke();
-        if (_sprint) ASprint?.Invoke();
-        if (_interaction) AInteraction?.Invoke();
-        if (_interactionHold) AInteractionHold?.Invoke();
-        if (_pickUp) APickUp?.Invoke();
-        if (_forcePickUp) AForcePickUp?.Invoke();
-        if (_inTrain) AInTrain?.Invoke();
-        if (_attach) AAttach?.Invoke();
-        if (_inventory) AInventory?.Invoke();
-        if (_useItem) AUseItem?.Invoke();
-        if (_reload) AReload?.Invoke();
-        if (_attack) AAttack?.Invoke();
-        if (_healing) AHealing?.Invoke();
+        //if (_jump) AJump?.Invoke();
+        //if (_sprint) ASprint?.Invoke();
+        //if (_interaction) AInteraction?.Invoke();
+        //if (_interactionHold) AInteractionHold?.Invoke();
+        //if (_pickUp) APickUp?.Invoke();
+        //if (_forcePickUp) AForcePickUp?.Invoke();
+        //if (_inTrain) AInTrain?.Invoke();
+        //if (_attach) AAttach?.Invoke();
+        //if (_inventory) AInventory?.Invoke();
+        //if (_useItem) AUseItem?.Invoke();
+        //if (_reload) AReload?.Invoke();
+        //if (_attack) AAttack?.Invoke();
+        //if (_healing) AHealing?.Invoke();
         if (_pause) APause?.Invoke();
         if (_roulette) ARoulette?.Invoke();
         if (_playtime) APlaytime?.Invoke();
