@@ -31,7 +31,7 @@ public class CurrencyUI : MonoBehaviour
     }
 
 
-    private void OnCurrencyChanged(CurrencyType type, double newAmount)
+    private void OnCurrencyChanged(CurrencyType type, float newAmount)
     {
         if (type == _type)
         {

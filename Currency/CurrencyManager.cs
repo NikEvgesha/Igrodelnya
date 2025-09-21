@@ -8,14 +8,14 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private Sprite _coinIcon;
     [SerializeField] private Sprite _realIcon; // Tmp
 
-    [SerializeField] private double StartCoinsAmount;
+    [SerializeField] private float StartCoinsAmount;
 
     [SerializeField] private AudioClip _audioBuy;
     [SerializeField] private AudioClip _audioSell;
     [SerializeField] private AudioSource _audioSource;
     private static CurrencyManager _instance;
 
-    private Dictionary<CurrencyType, double> _balance = new() 
+    private Dictionary<CurrencyType, float> _balance = new() 
     {
         { CurrencyType.Coins, 0},
         { CurrencyType.Gems, 0}
@@ -26,7 +26,7 @@ public class CurrencyManager : MonoBehaviour
     public double Gems { get { return _balance[CurrencyType.Gems]; } }
     public double Coins { get { return _balance[CurrencyType.Coins]; } }
 
-    public Action<CurrencyType, double> CurrencyChanged;
+    public Action<CurrencyType, float> CurrencyChanged;
     public Action NoGems;
     public Action NoCoins;
     public Action<bool> ShowGems;
@@ -64,7 +64,7 @@ public class CurrencyManager : MonoBehaviour
         AddCurrency(CurrencyType.Coins, StartCoinsAmount);
     }
 
-    public void AddCurrency(CurrencyType type, double amount)
+    public void AddCurrency(CurrencyType type, float amount)
     {
         if (_audioSource)
             if(_audioSell)
@@ -77,7 +77,7 @@ public class CurrencyManager : MonoBehaviour
             SaveManager.Instance.SaveGameCoin(_balance[type]);
     }
 
-    public bool RemoveCurrency(CurrencyType type, double amount)
+    public bool RemoveCurrency(CurrencyType type, float amount)
     {
         if (_balance[type] >= amount)
         {
@@ -96,12 +96,12 @@ public class CurrencyManager : MonoBehaviour
         return false;
     }
 
-    public double GetBalance(CurrencyType type)
+    public float GetBalance(CurrencyType type)
     {
         return _balance[type];
     }
 
-    public bool CheckEnoughCurrency(CurrencyType type, double amount, bool showNoGemsShop = true)
+    public bool CheckEnoughCurrency(CurrencyType type, float amount, bool showNoGemsShop = true)
     {
         if (amount <= _balance[type])
         {

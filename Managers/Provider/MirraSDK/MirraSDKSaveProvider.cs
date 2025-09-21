@@ -119,18 +119,18 @@ public class MirraSDKSaveProvider : SaveProvider
         Changed = true;
     }
 
-    public override void SaveGems(double amount)
+    public override void SaveGems(float amount)
     {
         if (!isInitialize) return;
         Changed = true;
-        MirraSDK.Data.SetString(SaveKey.Gems.ToString(), CurrencyConverter.convertNumToString(amount));
+        MirraSDK.Data.SetFloat(SaveKey.Gems.ToString(), amount);
     }
 
-    public override double LoadGems()
+    public override float LoadGems()
     {
         if (!isInitialize)
             return 0;
-        return CurrencyConverter.convertStringToNum(MirraSDK.Data.GetString(SaveKey.Gems.ToString(), "0"));
+        return MirraSDK.Data.GetFloat(SaveKey.Gems.ToString());
     }
 
     public override void SaveProgress()
@@ -219,11 +219,11 @@ public class MirraSDKSaveProvider : SaveProvider
         MirraSDK.Data.SetInt(SaveKey.Coins.ToString(), coin);
         MirraSDK.Data.SetFloat(SaveKey.Health.ToString(), health);
     }
-    public override void SaveGameCoin(double coin)
+    public override void SaveGameCoin(float coin)
     {
         if (!isInitialize) return;
         Changed = true;
-        MirraSDK.Data.SetString(SaveKey.Coins.ToString(), CurrencyConverter.convertNumToString(coin));
+        MirraSDK.Data.SetFloat(SaveKey.Coins.ToString(), coin);
     }
     public override void SavePlayerHealth(float health)
     {
@@ -246,11 +246,11 @@ public class MirraSDKSaveProvider : SaveProvider
         }
         return (0, 0);
     }
-    public override double LoadGameCoin()
+    public override float LoadGameCoin()
     {
         if (isInitialize)
         {
-            return CurrencyConverter.convertStringToNum(MirraSDK.Data.GetString(SaveKey.Coins.ToString(), "0"));
+            return MirraSDK.Data.GetFloat(SaveKey.Coins.ToString());
         }
         return 0;
     }

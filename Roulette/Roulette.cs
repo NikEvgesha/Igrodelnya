@@ -18,7 +18,7 @@ public struct RouletteReward
 public class Roulette : MonoBehaviour
 {
     [SerializeField] private List<RouletteReward> _rewards = new();
-    [SerializeField] private double _gemsPrice;
+    [SerializeField] private float _gemsPrice;
     //[SerializeField] private float _startSpeed = 50f;
     [SerializeField] private float _spinDuration = 5f;
     [SerializeField] private AnimationCurve _speedCurve;

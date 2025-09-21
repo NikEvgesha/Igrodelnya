@@ -103,13 +103,13 @@ public class SaveManager : MonoBehaviour
     {
         saveProvider.SaveTutorialProgress(endTutorial);
     }
-    public void SaveGems(double amount)
+    public void SaveGems(float amount)
     {
         saveProvider.SaveGems(amount);
         //LeaderboardManager.Instance.SaveScore(LBName.gems.ToString(), amount);
     }
 
-    public double GetGems()
+    public float GetGems()
     {
         return saveProvider.LoadGems();
     }
@@ -162,11 +162,11 @@ public class SaveManager : MonoBehaviour
     {
         saveProvider.SavePlayerStats(coin, hp);
     }
-    public void SaveGameCoin(double coin)
+    public void SaveGameCoin(float coin)
     {
         saveProvider.SaveGameCoin(coin);
     }
-    public double LoadGameCoin()
+    public float LoadGameCoin()
     {
         return saveProvider.LoadGameCoin();
     }
