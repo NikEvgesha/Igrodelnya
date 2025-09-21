@@ -196,7 +196,7 @@ public class PlayerInput : MonoBehaviour
         }
         else
         {
-            //_jump = Input.GetKeyDown(KeyCode.Space);
+            _jump = Input.GetKeyDown(KeyCode.Space);
             _interaction = Input.GetKeyDown(KeyCode.E);
             _interactionHold = Input.GetKey(KeyCode.E);
             //_sprint = Input.GetKey(KeyCode.LeftShift);
