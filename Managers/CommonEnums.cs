@@ -268,6 +268,14 @@ public enum RareType
     Legendary,
     Mythic,
 }
+public enum ElementType
+{
+    ElementType,
+    Gold,
+    Diamond,
+    Electric,
+    Fire
+}
 public enum BoostUI
 {
     BoostUI,

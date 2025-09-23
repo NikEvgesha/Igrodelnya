@@ -1,11 +1,15 @@
 using MirraGames.SDK;
 using System;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [DefaultExecutionOrder(1)]
 public class LoadingManager : MonoBehaviour
 {
+    [SceneSelector]
     [SerializeField] private string _lobbyScene;
+    [SceneSelector]
     [SerializeField] private string _gameScene;
 
     private Location _location = Location.None;
