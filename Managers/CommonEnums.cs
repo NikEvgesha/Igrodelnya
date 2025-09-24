@@ -271,6 +271,7 @@ public enum RareType
 public enum ElementType
 {
     ElementType,
+    NoElement,
     Gold,
     Diamond,
     Electric,
@@ -283,4 +284,11 @@ public enum BoostUI
     Useble,
     Discription,
     Stats,
+}
+public enum Item
+{
+    Free,
+    Hamer,
+    Egg,
+    Brainrot,
 }
