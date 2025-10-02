@@ -96,10 +96,10 @@ public class ControlManager : MonoBehaviour
                 _useTouchControls = true;
             }
         }
-        if (!_useTouchControls)
-        {
-            CursorActive = false;  
-        }
+        //if (!_useTouchControls)
+        //{
+        //    CursorActive = false;  
+        //}
     }
 
 

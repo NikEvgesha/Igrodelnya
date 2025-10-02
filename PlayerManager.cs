@@ -5,11 +5,10 @@ public class PlayerManager : MonoBehaviour
     private static PlayerManager _instance;
     public static PlayerManager Instance { get { return _instance; } private set { } }
 
-    [SerializeField] private BaseOwner _baseOwner;
-    [SerializeField] private GameObject _getPoint;
+    [SerializeField] private Transform _getPoint;
+    [SerializeField] private Transform _handPoint;
 
     private TPPlayerController _tPPlayer;
-    public BaseOwner BaseOwner { get { return _baseOwner; } }
 
     private void Awake()
     {
@@ -23,11 +22,18 @@ public class PlayerManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetItem(Transform item,Item itemType = Item.Egg)
+    public void SetItem(InventoryItem item)
     {
-        item.SetParent(_getPoint.transform);
-        item.localPosition = Vector3.up;
-        item.localRotation = Quaternion.Euler(0f, 90f, 0f);
+        if (item.Type == Item.Hamer)
+        {
+            item.transform.SetParent(_handPoint.transform);
+        } else
+        {
+            item.transform.SetParent(_getPoint.transform);
+        }
+            
+        item.transform.localPosition = Vector3.zero;
+        item.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
         _tPPlayer.SetHolding(true);
     }
     public void RemoveItem()
