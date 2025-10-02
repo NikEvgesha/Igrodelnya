@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
         }
             
         item.transform.localPosition = Vector3.zero;
-        item.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+        //item.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
         _tPPlayer.SetHolding(true);
     }
     public void RemoveItem()
